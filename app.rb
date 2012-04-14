@@ -10,13 +10,6 @@ get '/css/*.css' do
 	scss params[:splat].join.to_sym, :style => :compressed
 end
 
-# Plain old URL with a Liquid template
 get '/' do
   	liquid :index, :locals => { :name => 'world' }
-end
-
-# ERB, and routes with parameters
-get '/hello/:name' do
-	resp = "Hello, #{params[:name]}!"
-	erb resp
 end
